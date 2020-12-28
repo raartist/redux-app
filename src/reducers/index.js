@@ -3,6 +3,7 @@ import todos from './todos'
 
 const rootReducers = combineReducers({
     todos,
+    
 })
 
 export default rootReducers 
