@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux"
-import {addTodo} from "../../actions"
+import { showAlert} from "../../actions/index"
 
 
 const AddTodo = (props) => {
@@ -8,7 +8,8 @@ const AddTodo = (props) => {
         <form onSubmit={(event)=>{
             event.preventDefault();
             let input = event.target.userInput.value;
-            props.dispatch(addTodo(input));
+            console.log(input);
+            event.target.userInput.value= ""
         }}>
             <input type="text" name="userInput" />
             <button type="submit">submit</button>
