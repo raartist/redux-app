@@ -1,20 +1,24 @@
-import React from 'react'
-import {connect} from "react-redux"
-import { showAlert} from "../../actions/index"
-
+import React from "react";
+import { connect } from "react-redux";
+import { addTodo } from "../../actions";
 
 const AddTodo = (props) => {
-    return (
-        <form onSubmit={(event)=>{
-            event.preventDefault();
-            let input = event.target.userInput.value;
-            console.log(input);
-            event.target.userInput.value= ""
-        }}>
-            <input type="text" name="userInput" />
-            <button type="submit">submit</button>
-        </form>
-    )
-}
+  return (
+    <div>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          let input = event.target.userInput.value;
+          console.log(input);
+          props.dispatch(addTodo(input));
+          event.target.userInput.value = "";
+        }}
+      >
+        <input type="text" name="userInput" />
+        <button type="submit">submit</button>
+      </form>
+    </div>
+  );
+};
 
-export default connect()(AddTodo)
+export default connect()(AddTodo);
